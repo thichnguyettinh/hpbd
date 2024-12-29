@@ -1,0 +1,454 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.happy-birthday {
+    background: linear-gradient(to right, #F72C5B, #FF748B);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    position: fixed;
+    top: 80px;
+}
+
+.btn-timeline {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;  /* Màu chữ hồng */
+    text-decoration: none;  /* Loại bỏ gạch chân */
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-timeline:hover {
+    transform: scale(1.1);  /* Hiệu ứng phóng to khi hover */
+}
+
+.cake-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cake {
+    position: relative;
+}
+
+.cake-layer {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f3b0c3;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.layer1 {
+    height: 120px;
+    background: linear-gradient(135deg, #ffb3c1, #FFCCEA);
+    width: 250px;
+    top: 0;
+}
+
+.layer2 {
+    height: 100px;
+    background: linear-gradient(135deg,#FF748B, #ffb3c1);
+    width: 300px;
+    top: 120px;
+}
+
+.layer3 {
+    height: 80px;
+    background: linear-gradient(135deg, #F72C5B, #FF748B );
+    width: 350px;
+    top: 220px;
+}
+
+.cake-top {
+    width: 100%;
+    height: 40px;
+    background: #fff0f5;
+    border-radius: 25px 25px 0 0;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.candles {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.candle {
+    width: 8px;
+    height: 50px;
+    background-color: #f5c410;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.candle-flame {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 12px;
+    background-color: #ff8000;
+    border-radius: 50%;
+    animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.firework {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ff8000;
+    border-radius: 50%;
+    animation: launch 2s infinite ease-out, change-color 2s infinite;
+}
+
+.firework:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ff8000;
+    border-radius: 50%;
+    animation: mini-explosion 2s infinite ease-out, change-color 2s infinite;
+}
+
+@keyframes launch {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes mini-explosion {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) translateY(15px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5) translateY(30px);
+    }
+}
+
+@keyframes change-color {
+    0% { background-color: #FEEC37; }
+    25% { background-color: #94FFD8; }
+    50% { background-color: #A3D8FF; }
+    75% { background-color: #8B93FF; }
+    100% { background-color: #F72C5B; }
+}
+
+.firework.left {
+    left: calc(5% + var(--offset));
+}
+
+.firework.right {
+    right: calc(5% + var(--offset));
+}
+
+.firework-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: yellow;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.heart-container {
+    position: absolute;
+    top: 80%; /* Canh giữa theo chiều dọc */
+    left: 65%; /* Canh giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Dịch chuyển để chính giữa */
+    margin-top: 50px;  /* Hạ trái tim xuống */
+    margin-left: -30px; /* Di chuyển trái tim sang trái */
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.heart::before {
+    left: 50px;
+    top: 0;
+}
+
+.heart::after {
+    top: -50px;
+    left: 0;
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    animation: sparkle 1s infinite ease-in-out;
+}
+
+.sparkle:nth-child(1) {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0.2s;
+}
+
+.sparkle:nth-child(2) {
+    top: 30%;
+    left: 25%;
+    animation-delay: 0.4s;
+}
+
+.sparkle:nth-child(3) {
+    top: 50%;
+    left: 35%;
+    animation-delay: 0.6s;
+}
+
+.sparkle:nth-child(4) {
+    top: 20%;
+    left: 50%;
+    animation-delay: 0.8s;
+}
+
+.sparkle:nth-child(5) {
+    top: 40%;
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.sparkle:nth-child(6) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 1.2s;
+}
+
+.sparkle:nth-child(7) {
+    top: 10%;
+    left: 80%;
+    animation-delay: 1.4s;
+}
+
+.sparkle:nth-child(8) {
+    top: 70%;
+    left: 90%;
+    animation-delay: 1.6s;
+}
+
+.sparkle:nth-child(9) {
+    top: 80%;
+    left: 40%;
+    animation-delay: 1.8s;
+}
+
+.sparkle:nth-child(10) {
+    top: 50%;
+    left: 85%;
+    animation-delay: 2s;
+}
+  
+/* Đặt hộp quà ở vị trí mong muốn mà không ảnh hưởng đến phần tử khác */
+.gift-box-container {
+    position: absolute;
+    top: 80%; /* Điều chỉnh khoảng cách từ trên cùng */
+    left: 25%; /* Điều chỉnh khoảng cách từ bên trái */
+    transform: translate(-50%, -50%); /* Canh giữa hộp quà */
+    z-index: 10;
+}
+  
+/* Hộp quà */
+.gift-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #F72C5B; /* Màu hộp quà */
+    border-radius: 10px; /* Viền bo tròn */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+  
+/* Nắp hộp quà */
+.gift-lid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Độ cao của nắp hộp */
+    background-color: #FEEC37; /* Màu nắp hộp */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng nắp */
+}
+  
+/* Thân hộp quà */
+.gift-body {
+    position: absolute;
+    top: 50px; /* Đặt phần thân hộp dưới nắp */
+    left: 0;
+    width: 100%;
+    height: 150px; /* Độ cao của phần thân hộp */
+    background-color: #ff4d4d; /* Màu thân hộp */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+  
